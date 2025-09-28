@@ -1,0 +1,320 @@
+/** @name:  ./utility.cpp
+  * @date: Thu Dec 21 09:06:55 AM CST 2023
+  * @version    0.0.2
+*/
+
+#include <sstream>
+#include <fstream>
+#include <map>
+#include <regex>
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include "math.h"
+#include "fileio.hpp"
+#include "utility.hpp"
+
+using std::regex;
+using std::smatch;
+using std::string;
+using std::map;
+using std::vector;
+using std::ostringstream;
+using std::ifstream;
+using std::ifstream;
+using std::pair;
+using std::ios;
+
+const int ASCII_OFFSET = 48;
+
+/**
+ * @name get_config
+ * @param path to config file
+ * @param config, out parma
+ * @return
+ */
+map<string, string>& get_config(const string& path, /* out */ map<string, string>& config)
+{
+    ifstream file;
+    file.open(path, ios::out); //open a file
+    pair<string, string> config_pair;
+
+    if (file.is_open())
+    {
+        string line;
+        while(getline(file, line))
+        {
+            size_t pos = line.find('=');
+            string name = line.substr(0, pos-1);
+            name = trim(name);
+            string value = line.substr(pos+1);
+            value = trim(value);
+            pair<string, string> p(name, value);
+            config.insert(p);
+        }
+        file.close(); //close the file
+    }
+    return config;
+}
+
+/**
+ * @brief
+ * @param pattern
+ * @param text
+ * @param match
+ * @return true if only one match & match string size equals text size
+ */
+bool match_single(const string& pattern, const string& text, /* out */ smatch& match)
+{
+    regex rgx = regex(pattern);
+    regex_match(text, match, rgx);
+    if(match.size() == 1 && match.str().size() == text.size())
+        return true;
+
+    return false;
+}
+
+/**
+ * @brief
+ * @param pattern
+ * @param text
+ * @return true if only one match & match string size equals text size
+ */
+bool match_single(const string& pattern, const string& text)
+{
+    regex rgx = regex(pattern);
+    smatch match;
+    regex_match(text, match, rgx);
+
+    if(match.size() == 1 && text.size(), match.str().size())
+        return true;
+
+    return false;
+}
+
+/**
+ * @brief
+ * @param s
+ * @param c
+ * @return
+ */
+std::vector<std::string> split(const std::string& s, char c)
+{
+  std::vector<std::string> result;
+  size_t begin = 0;
+  while (true)
+  {
+    size_t end = s.find_first_of(c, begin);
+    result.push_back(s.substr(begin, end - begin));
+
+    if (end == std::string::npos) {
+      break;
+    }
+
+    begin = end + 1;
+  }
+  return result;
+}
+
+/**
+ * @name digits10
+ * @param n, number to eval
+ * @return number of base 10 digits
+ */
+int digits10(int n)
+{
+    return std::floor(std::log10(n) + 1);
+}
+
+/**
+ * @name itoa
+ * @info: int to ascii
+ * @param s, string to convert
+ * @return int : result
+ */
+int atoi(const char* s)
+{
+    int num = 0;
+    int len = strlen(s);
+    for(int i = 0; i < len; ++i)
+    {
+        int digit = ASCII_OFFSET - i;
+        if(digit < 0 || digit > 10)
+            return -1;
+        num += digit * pow(10, i);
+    }
+    return num;
+}
+
+/**
+ * @brief
+ * @param s
+ * @param r
+ * @return
+ */
+string& to_lower(const string& s, /* out */ string& r)
+{
+    int len = s.length();
+    r.clear();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::tolower(s[i]);
+        r.push_back(c);
+    }
+    return r;
+}
+
+/**
+ * @brief
+ * @param s
+ * @return
+ */
+string& to_lower(string& s) // in place
+{
+    int len = s.length();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::tolower(s[i]);
+        s[i] = c;
+    }
+    return s;
+}
+
+/**
+ * @brief
+ * @param s
+ * @param r
+ * @return
+ */
+string& to_upper(const string& s, /* out */ string& r)
+{
+    int len = s.length();
+    r.clear();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::toupper(s[i]);
+        r.push_back(c);
+    }
+    return r;
+}
+
+/**
+ * @brief
+ * @param s
+ * @return
+ */
+string& to_upper(string& s) // in place
+{
+    int len = s.length();
+    for(int i = 0; i < len; ++i)
+    {
+        int c = std::toupper(s[i]);
+        s[i] = c;
+    }
+    return s;
+}
+
+/// name: itoa
+/// info: int to ascii
+/// n, number to eval
+/// s, out parma
+/// return: void
+
+/**
+ * @brief
+ * @param n
+ * @param s
+ */
+void itoa(int& n, char* s)
+{
+    int len = digits10(n);
+    for(int i = 0; i < len; ++i)
+    {
+        int c = n / pow(10, i);
+        c = std::floor( c );
+        c = c % 10;
+        s[(len-1)-i] = (char)(c + ASCII_OFFSET); // 0x30
+    }
+    s[len] = (char)'\0';
+}
+
+/**
+ * @brief
+ * @param m
+ * @return
+ */
+int read_bits(const smatch& m)
+{
+    int len = m.size();
+    unsigned int bits = 0;
+    for(int i = 0; i < len && i < 32; ++i)
+    {
+        bits |= (int(m[i].matched) << i);
+    }
+    return bits;
+}
+
+/**
+ * @brief
+ * @param s
+ * @param c
+ * @return
+ */
+string& trim(string &s, char c)
+{
+    if(s.at(s.length()-1) == c)
+        s.pop_back();
+
+    return s;
+}
+
+/**
+ * @brief
+ * @param s
+ * @return
+ */
+string& ltrim(std::string &s)
+{
+    int len = s.size();
+    int i;
+    for(i = 0; i < len; ++i)
+    {
+        if(!std::isspace(s[i]))
+            break;
+    }
+    string::iterator beg = s.begin();
+    s.erase(beg, beg+i);
+    return s;
+}
+
+/**
+ * @brief
+ * @param s
+ * @return
+ */
+string& rtrim(std::string &s)
+{
+    int len = s.size();
+    int i = len;
+    for(;i > 0; --i)
+    {
+        if(!std::isspace(s[i-1]))
+            break;
+    }
+    string::iterator end = s.end();
+    s.erase(end-(len-i), end);
+    return s;
+}
+
+/**
+ * @brief
+ * @param s
+ * @return
+ */
+string& trim(std::string &s)
+{
+    rtrim(s);
+    ltrim(s);
+    return s;
+}

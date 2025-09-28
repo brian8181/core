@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -Wl,--enable-auto-import CMakeFiles/unit_tests.dir/TestCalculator.cpp.o CMakeFiles/unit_tests.dir/main.cpp.o -o unit_tests.exe -Wl,--out-implib,libunit_tests.dll.a -Wl,--major-image-version,0,--minor-image-version,0  ../libCppUnitExample_lib.a -lcppunit 

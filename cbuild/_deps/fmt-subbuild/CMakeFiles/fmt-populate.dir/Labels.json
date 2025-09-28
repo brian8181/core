@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/CMakeFiles/fmt-populate"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/CMakeFiles/fmt-populate.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/CMakeFiles/fmt-populate-complete.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-build.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-configure.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-download.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-install.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-mkdir.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-patch.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-test.rule"
+		},
+		{
+			"file" : "/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"fmt-populate"
+		],
+		"name" : "fmt-populate"
+	}
+}

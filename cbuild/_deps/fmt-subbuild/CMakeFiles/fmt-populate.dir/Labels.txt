@@ -1,0 +1,14 @@
+# Target labels
+ fmt-populate
+# Source files and their labels
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/CMakeFiles/fmt-populate
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/CMakeFiles/fmt-populate.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/CMakeFiles/fmt-populate-complete.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-build.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-configure.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-download.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-install.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-mkdir.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-patch.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-test.rule
+/cygdrive/c/Users/brian/src/core/cbuild/_deps/fmt-subbuild/fmt-populate-prefix/src/fmt-populate-stamp/fmt-populate-update.rule

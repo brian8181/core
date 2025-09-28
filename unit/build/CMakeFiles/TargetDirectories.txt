@@ -1,0 +1,8 @@
+/home/brian/src/core/unit/build/CMakeFiles/CppUnitExample_lib.dir
+/home/brian/src/core/unit/build/CMakeFiles/test.dir
+/home/brian/src/core/unit/build/CMakeFiles/edit_cache.dir
+/home/brian/src/core/unit/build/CMakeFiles/rebuild_cache.dir
+/home/brian/src/core/unit/build/tests/CMakeFiles/unit_tests.dir
+/home/brian/src/core/unit/build/tests/CMakeFiles/test.dir
+/home/brian/src/core/unit/build/tests/CMakeFiles/edit_cache.dir
+/home/brian/src/core/unit/build/tests/CMakeFiles/rebuild_cache.dir

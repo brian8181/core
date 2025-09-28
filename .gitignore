@@ -1,0 +1,6 @@
+# @name     core
+# @file:    makefile
+# @date:    Sat Sep 27 22:57:38 CDT 2025
+# @version: 0.0.1
+
+build/*

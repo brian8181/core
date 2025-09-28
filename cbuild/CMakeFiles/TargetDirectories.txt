@@ -1,0 +1,4 @@
+/home/brian/src/core/cbuild/CMakeFiles/core.dir
+/home/brian/src/core/cbuild/CMakeFiles/core_a.dir
+/home/brian/src/core/cbuild/CMakeFiles/edit_cache.dir
+/home/brian/src/core/cbuild/CMakeFiles/rebuild_cache.dir

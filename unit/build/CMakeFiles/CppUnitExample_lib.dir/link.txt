@@ -1,0 +1,2 @@
+/usr/bin/ar.exe qc libCppUnitExample_lib.a CMakeFiles/CppUnitExample_lib.dir/src/Calculator.cpp.o
+/usr/bin/ranlib.exe libCppUnitExample_lib.a
