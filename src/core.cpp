@@ -6,8 +6,8 @@
  */
 #include <iostream>
 #include <getopt.h>
-#include "core.hpp"
 #include "bash_color.hpp"
+#include "int256.hpp"
 
 using std::string;
 using std::cout;
@@ -70,6 +70,8 @@ int parse_options(int argc, char* argv[])
 
 	string path = argv[0];   // get exe file path
 	cout << argv[0] << endl;
+
+	int256 i((unsigned char)0);
 
 	return 0;
 }

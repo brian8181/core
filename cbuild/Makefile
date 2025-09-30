@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/brian/src/core/cbuild
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest.exe --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -117,6 +127,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named core_lib
+
+# Build rule for target.
+core_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core_lib
+.PHONY : core_lib
+
+# fast build rule for target.
+core_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_lib.dir/build.make CMakeFiles/core_lib.dir/build
+.PHONY : core_lib/fast
+
+#=============================================================================
+# Target rules for targets named unit_tests
+
+# Build rule for target.
+unit_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unit_tests
+.PHONY : unit_tests
+
+# fast build rule for target.
+unit_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
+.PHONY : unit_tests/fast
+
+#=============================================================================
 # Target rules for targets named core
 
 # Build rule for target.
@@ -129,18 +165,29 @@ core/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/build
 .PHONY : core/fast
 
-#=============================================================================
-# Target rules for targets named core_a
+src/TestFile.o: src/TestFile.cpp.o
+.PHONY : src/TestFile.o
 
-# Build rule for target.
-core_a: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core_a
-.PHONY : core_a
+# target to build an object file
+src/TestFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/src/TestFile.cpp.o
+.PHONY : src/TestFile.cpp.o
 
-# fast build rule for target.
-core_a/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_a.dir/build.make CMakeFiles/core_a.dir/build
-.PHONY : core_a/fast
+src/TestFile.i: src/TestFile.cpp.i
+.PHONY : src/TestFile.i
+
+# target to preprocess a source file
+src/TestFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/src/TestFile.cpp.i
+.PHONY : src/TestFile.cpp.i
+
+src/TestFile.s: src/TestFile.cpp.s
+.PHONY : src/TestFile.s
+
+# target to generate assembly for a file
+src/TestFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/src/TestFile.cpp.s
+.PHONY : src/TestFile.cpp.s
 
 src/core.o: src/core.cpp.o
 .PHONY : src/core.o
@@ -171,8 +218,8 @@ src/fileio.o: src/fileio.cpp.o
 
 # target to build an object file
 src/fileio.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_lib.dir/build.make CMakeFiles/core_lib.dir/src/fileio.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/fileio.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_a.dir/build.make CMakeFiles/core_a.dir/src/fileio.cpp.o
 .PHONY : src/fileio.cpp.o
 
 src/fileio.i: src/fileio.cpp.i
@@ -180,8 +227,8 @@ src/fileio.i: src/fileio.cpp.i
 
 # target to preprocess a source file
 src/fileio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_lib.dir/build.make CMakeFiles/core_lib.dir/src/fileio.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/fileio.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_a.dir/build.make CMakeFiles/core_a.dir/src/fileio.cpp.i
 .PHONY : src/fileio.cpp.i
 
 src/fileio.s: src/fileio.cpp.s
@@ -189,9 +236,33 @@ src/fileio.s: src/fileio.cpp.s
 
 # target to generate assembly for a file
 src/fileio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_lib.dir/build.make CMakeFiles/core_lib.dir/src/fileio.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/fileio.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_a.dir/build.make CMakeFiles/core_a.dir/src/fileio.cpp.s
 .PHONY : src/fileio.cpp.s
+
+src/int256.o: src/int256.cpp.o
+.PHONY : src/int256.o
+
+# target to build an object file
+src/int256.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/int256.cpp.o
+.PHONY : src/int256.cpp.o
+
+src/int256.i: src/int256.cpp.i
+.PHONY : src/int256.i
+
+# target to preprocess a source file
+src/int256.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/int256.cpp.i
+.PHONY : src/int256.cpp.i
+
+src/int256.s: src/int256.cpp.s
+.PHONY : src/int256.s
+
+# target to generate assembly for a file
+src/int256.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/int256.cpp.s
+.PHONY : src/int256.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -223,7 +294,6 @@ src/utility.o: src/utility.cpp.o
 # target to build an object file
 src/utility.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/utility.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_a.dir/build.make CMakeFiles/core_a.dir/src/utility.cpp.o
 .PHONY : src/utility.cpp.o
 
 src/utility.i: src/utility.cpp.i
@@ -232,7 +302,6 @@ src/utility.i: src/utility.cpp.i
 # target to preprocess a source file
 src/utility.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/utility.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_a.dir/build.make CMakeFiles/core_a.dir/src/utility.cpp.i
 .PHONY : src/utility.cpp.i
 
 src/utility.s: src/utility.cpp.s
@@ -241,7 +310,6 @@ src/utility.s: src/utility.cpp.s
 # target to generate assembly for a file
 src/utility.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/utility.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/core_a.dir/build.make CMakeFiles/core_a.dir/src/utility.cpp.s
 .PHONY : src/utility.cpp.s
 
 # Help Target
@@ -252,14 +320,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... core"
-	@echo "... core_a"
+	@echo "... core_lib"
+	@echo "... unit_tests"
+	@echo "... src/TestFile.o"
+	@echo "... src/TestFile.i"
+	@echo "... src/TestFile.s"
 	@echo "... src/core.o"
 	@echo "... src/core.i"
 	@echo "... src/core.s"
 	@echo "... src/fileio.o"
 	@echo "... src/fileio.i"
 	@echo "... src/fileio.s"
+	@echo "... src/int256.o"
+	@echo "... src/int256.i"
+	@echo "... src/int256.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

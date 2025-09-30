@@ -25,6 +25,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.28.3/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-3.28.3/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.28.3/Modules/Compiler/GNU.cmake"
+  "/usr/share/cmake-3.28.3/Modules/FindPackageHandleStandardArgs.cmake"
+  "/usr/share/cmake-3.28.3/Modules/FindPackageMessage.cmake"
+  "/usr/share/cmake-3.28.3/Modules/FindPkgConfig.cmake"
   "/usr/share/cmake-3.28.3/Modules/Platform/CYGWIN-GNU-C.cmake"
   "/usr/share/cmake-3.28.3/Modules/Platform/CYGWIN-GNU-CXX.cmake"
   "/usr/share/cmake-3.28.3/Modules/Platform/CYGWIN-GNU.cmake"
@@ -47,6 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/core_lib.dir/DependInfo.cmake"
+  "CMakeFiles/unit_tests.dir/DependInfo.cmake"
   "CMakeFiles/core.dir/DependInfo.cmake"
-  "CMakeFiles/core_a.dir/DependInfo.cmake"
   )

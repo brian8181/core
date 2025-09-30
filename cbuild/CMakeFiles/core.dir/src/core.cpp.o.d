@@ -126,5 +126,5 @@ CMakeFiles/core.dir/src/core.cpp.o: /home/brian/src/core/src/core.cpp \
  /usr/lib/gcc/x86_64-pc-cygwin/13/include/c++/bits/ostream.tcc \
  /usr/lib/gcc/x86_64-pc-cygwin/13/include/c++/istream \
  /usr/lib/gcc/x86_64-pc-cygwin/13/include/c++/bits/istream.tcc \
- /usr/include/getopt.h /home/brian/src/core/src/core.hpp \
- /home/brian/src/core/src/bash_color.hpp
+ /usr/include/getopt.h /home/brian/src/core/src/bash_color.hpp \
+ /home/brian/src/core/src/int256.hpp

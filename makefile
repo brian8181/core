@@ -44,11 +44,11 @@ endif
 
 all: $(BLD)/core $(BLD)/$(APP)_test $(BLD)/libcore.so $(BLD)/libcore.a
 
-$(BLD)/core: $(OBJ)/main.o $(OBJ)/core.o $(OBJ)/int256.o
-	 $(CXX) $(CXXFLAGS) $(OBJ)/main.o $(OBJ)/core.o -o $(BLD)/core
+$(BLD)/core: $(OBJ)/main.o $(OBJ)/core.o $(OBJ)/int256.o $(OBJ)/utility.o
+	 $(CXX) $(CXXFLAGS) $< -o $(BLD)/core
 
 $(BLD)/libcore.so: $(OBJ)/main.o $(BLD)/core.o
-	$(CXX) $(CXXFLAGS) $(CXXEXTRA) --shared $(OBJ)/main.o $(BLD)/core.o -o $(BLD)/libcore.so
+	$(CXX) $(CXXFLAGS) $(CXXEXTRA) $(OBJ)/main.o $(BLD)/core.o -o $(BLD)/libcore.so
 	-chmod 755 $(BLD)/libcore.so
 
 $(BLD)/$(APP)_test: $(OBJ)/$(APP).o $(OBJ)/$(APP)_test.o
