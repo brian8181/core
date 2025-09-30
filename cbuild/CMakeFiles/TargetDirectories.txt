@@ -1,6 +1,0 @@
-/home/brian/src/core/cbuild/CMakeFiles/core_lib.dir
-/home/brian/src/core/cbuild/CMakeFiles/unit_tests.dir
-/home/brian/src/core/cbuild/CMakeFiles/core.dir
-/home/brian/src/core/cbuild/CMakeFiles/test.dir
-/home/brian/src/core/cbuild/CMakeFiles/edit_cache.dir
-/home/brian/src/core/cbuild/CMakeFiles/rebuild_cache.dir

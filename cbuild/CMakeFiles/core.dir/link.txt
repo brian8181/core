@@ -1,1 +1,0 @@
-/usr/bin/c++.exe -Wl,--enable-auto-import CMakeFiles/core.dir/src/main.cpp.o CMakeFiles/core.dir/src/core.cpp.o CMakeFiles/core.dir/src/fileio.cpp.o CMakeFiles/core.dir/src/utility.cpp.o CMakeFiles/core.dir/src/int256.cpp.o -o core.exe -Wl,--out-implib,libcore.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
